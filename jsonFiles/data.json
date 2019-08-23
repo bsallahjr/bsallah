@@ -1,0 +1,661 @@
+{
+    "name": "cdorman",
+    "children": [
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "refreshed_chart_seed_listener_return_rate",
+            "children": [
+                {
+                    "status": "No Data",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "refreshed_chart_seed_listener_return_rate",
+                    "children": [
+                        {
+                            "status": "No Data",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "refreshed_chart_seed_listener_return_rate",
+                            "children": [
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_new_nonq_genre_station_return",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "browse_selects_per_browse_visitors",
+            "children": [
+                {
+                    "status": "WAITING",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "custom_browse_metrics",
+                    "children": [
+                        {
+                            "status": "RUNNING",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "custom_browse_metrics",
+                            "children": [
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_feedback_packed_summary",
+                                    "children": []
+                                },
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_listener_summary",
+                                    "children": []
+                                },
+                                {
+                                    "status": "WAITING",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_listener_summary_all_content",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "browse_visits_per_active",
+            "children": [
+                {
+                    "status": "WAITING",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "custom_browse_metrics",
+                    "children": [
+                        {
+                            "status": "RUNNING",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "custom_browse_metrics",
+                            "children": [
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_feedback_packed_summary",
+                                    "children": []
+                                },
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_listener_summary",
+                                    "children": []
+                                },
+                                {
+                                    "status": "WAITING",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_listener_summary_all_content",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "station_creates_per_browse_visitor",
+            "children": [
+                {
+                    "status": "WAITING",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "custom_browse_metrics",
+                    "children": [
+                        {
+                            "status": "RUNNING",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "custom_browse_metrics",
+                            "children": [
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_feedback_packed_summary",
+                                    "children": []
+                                },
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_listener_summary",
+                                    "children": []
+                                },
+                                {
+                                    "status": "WAITING",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_listener_summary_all_content",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "replays_per_reg",
+            "children": [
+                {
+                    "status": "WAITING",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "playlist_feedback",
+                    "children": [
+                        {
+                            "status": "READY",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "playlist_feedback",
+                            "children": [
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_manual_playlist_create_summary",
+                                    "children": []
+                                },
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_repetitions",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "thumbs_per_spin",
+            "children": [
+                {
+                    "status": "WAITING",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "playlist_feedback",
+                    "children": [
+                        {
+                            "status": "READY",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "playlist_feedback",
+                            "children": [
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_manual_playlist_create_summary",
+                                    "children": []
+                                },
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_repetitions",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "changed_station_tracks_per_reg",
+            "children": [
+                {
+                    "status": "WAITING",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "playlist_track_end_simple",
+                    "children": [
+                        {
+                            "status": "READY",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "playlist_track_end_simple",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "complete_tracks_per_reg",
+            "children": [
+                {
+                    "status": "WAITING",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "playlist_track_end_simple",
+                    "children": [
+                        {
+                            "status": "READY",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "playlist_track_end_simple",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "skipped_tracks_per_reg",
+            "children": [
+                {
+                    "status": "WAITING",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "playlist_track_end_simple",
+                    "children": [
+                        {
+                            "status": "READY",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "playlist_track_end_simple",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "changed_station_tracks_per_track",
+            "children": [
+                {
+                    "status": "WAITING",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "playlist_track_end_ratio",
+                    "children": [
+                        {
+                            "status": "READY",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "playlist_track_end_ratio",
+                            "children": [
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_repetitions",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "skipped_tracks_per_track",
+            "children": [
+                {
+                    "status": "WAITING",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "playlist_track_end_ratio",
+                    "children": [
+                        {
+                            "status": "READY",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "playlist_track_end_ratio",
+                            "children": [
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_repetitions",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "thumbs_down_per_spin",
+            "children": [
+                {
+                    "status": "WAITING",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "thumbs_down_per_spin",
+                    "children": [
+                        {
+                            "status": "READY",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "thumbs_down_per_spin",
+                            "children": [
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_feedback_packed_summary",
+                                    "children": []
+                                },
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_repetitions",
+                                    "children": []
+                                },
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_spintype",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "ltv_simple",
+            "children": [
+                {
+                    "status": "WAITING",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "ltv",
+                    "children": [
+                        {
+                            "status": "WAITING",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "ltv",
+                            "children": [
+                                {
+                                    "status": "WAITING",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_listener_summary_temporary_with_podcasts",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "complete_tracks_per_day",
+            "children": [
+                {
+                    "status": "WAITING",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "complete_tracks_per_day",
+                    "children": [
+                        {
+                            "status": "RUNNING",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "complete_tracks_per_day",
+                            "children": [
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_create_station_summary",
+                                    "children": []
+                                },
+                                {
+                                    "status": "COMPLETED",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_track_end",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "refreshed_chart_seed_track_skip_rate",
+            "children": [
+                {
+                    "status": "No Data",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "refreshed_chart_seed_track_skip_rate",
+                    "children": [
+                        {
+                            "status": "No Data",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "refreshed_chart_seed_track_skip_rate",
+                            "children": [
+                                {
+                                    "status": "No Data",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_new_nonq_genre_station_track_end",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "refreshed_chart_seed_track_complete_rate",
+            "children": [
+                {
+                    "status": "No Data",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "refreshed_chart_seed_track_complete_rate",
+                    "children": [
+                        {
+                            "status": "No Data",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "refreshed_chart_seed_track_complete_rate",
+                            "children": [
+                                {
+                                    "status": "No Data",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_new_nonq_genre_station_track_end",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "status": "No Data",
+            "technos": [
+                "Metric"
+            ],
+            "name": "refreshed_chart_seed_station_change_rate",
+            "children": [
+                {
+                    "status": "No Data",
+                    "technos": [
+                        "MetricGroup"
+                    ],
+                    "name": "refreshed_chart_seed_station_change_rate",
+                    "children": [
+                        {
+                            "status": "No Data",
+                            "technos": [
+                                "MetricVariable"
+                            ],
+                            "name": "refreshed_chart_seed_station_change_rate",
+                            "children": [
+                                {
+                                    "status": "No Data",
+                                    "technos": [
+                                        "ListenerSummary"
+                                    ],
+                                    "name": "ab_ls_new_nonq_genre_station_track_end",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
