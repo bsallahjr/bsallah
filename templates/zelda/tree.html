@@ -1,0 +1,300 @@
+{% extends "ab_ui/base.html" %}
+{% load static %}
+    {% block page_title %}
+    <title>Zelda✌🏽</title>
+
+    {% endblock page_title %}
+
+    {% block default_styles %}
+        {{ block.super }}
+        <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/tree.css' %}" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.css" rel="stylesheet">
+
+        <style>
+        </style>
+    {%  endblock default_styles %}
+
+    {% block default_scripts %}
+    {{ block.super }}
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+    {% endblock default_scripts%}
+
+    {% block scaffold %}
+        <form>
+                <h2>Metric Pipeline Status <small> Core Metrics + Subscribed Metrics + Owned Metrics</small></h2>
+                <h2><small>Zelda is here to visualize the status of the A/B Pipeline. The root of the tree is your username and a level up are the metrics you care about. The tree defaults to yesterdays status of the pipeline; you may enter a new date to see the status for the date of your choice. The type of nodes tree is shown in the flow diagram below, and please refer to the color key to understand the status of each node.
+                </small></h2>
+
+                <h2><small>Zelda is fetching a lot of data -- it may take a while to load</small></h2>
+            <div id="key">
+
+                <br />
+            <img src="{% static 'images/status_key.png' %}" alt="Key" >
+                <br />
+                <br />
+            <img src="{% static 'images/flow.png' %}" alt="Key">
+            </div>
+            <div id="clear-both status-date-picker-div" class="date">
+                <h3>Select Date</h3>
+                <input type="text" id="new_date" class="col-md-8 form-control rounded-corners  " value="{{ end_date }}" name="new_date" data-provide="datepicker" required/>
+            </div>
+            <input type="button" id="update" value="Update" class="btn btn-primary">
+        </form>
+        <div>
+            <h4>Current Date: </h4><h4 id="curr_date"></h4>
+        </div>
+    <!-- load the d3.js library -->
+    <script>
+
+        document.getElementById("update").addEventListener("click", function(){
+            build()
+        });
+        // Set the dimensions and margins of the diagram
+        var margin = {top: 10, right: 300, bottom: 10000, left: 100},
+            width = 960 + margin.left + margin.right,
+            height = 500 + margin.top + margin.bottom;
+        // declares a tree layout and assigns the size
+        var treemap = d3.tree().size([height + 10000, width]);
+        // append the svg object to the body of the page
+        // appends a 'group' element to 'svg'
+        // moves the 'group' element to the top left margin
+        var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.right + margin.left)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate("
+                + margin.left + "," + margin.top + ")");
+
+       var i = 0,
+            duration = 750
+        var root;
+        function formatDate(date) {
+            if(!date) return null;
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2) month = '0' + month;
+            if (day.length < 2) day = '0' + day;
+
+            return [year, month, day].join('-');
+        }
+        function reverseFormatDate(date, inc) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + (d.getDate()+inc),
+                year = d.getFullYear();
+
+            if (month.length < 2) month = '0' + month;
+            if (day.length < 2) day = '0' + day;
+
+            return [month, day, year].join('/');
+        }
+        function build() {
+            var date = formatDate(document.getElementById("new_date").value)
+            if(!date){
+                $today = new Date();
+                $yesterday = new Date($today);
+                $yesterday.setDate($today.getDate() - 1);
+                var $yyyy = $yesterday.getFullYear();
+                var $dd = $yesterday.getDate();
+                var $mm = $yesterday.getMonth()+1; //January is 0!
+                date = $yyyy + '-' + $mm + '-' + $dd
+                document.getElementById("curr_date").innerHTML = reverseFormatDate(date,0);
+            }else {
+                document.getElementById("curr_date").innerHTML = reverseFormatDate(date, 1);
+            }
+            var treeData = {};
+            var x = $.ajax({
+                url: "/get_users_data",
+                type: "GET",
+                dataType: "json",
+                data: {
+                    day: date,
+                }
+            }).done(function() {
+                if (x.status === 200) {
+                    treeData = $.parseJSON(JSON.stringify(x.responseJSON));
+                }
+
+
+                console.log(treeData);
+
+
+                // Assigns parent, children, height, depth
+                root = d3.hierarchy(treeData, function (d) {
+                    return d.children;
+                });
+                root.x0 = height / 2;
+                root.y0 = 0;
+
+                // Collapse after the second level
+                // root.children.forEach(collapse);
+
+                update(root);
+            })
+        }
+    // Collapse the node and all it's children
+    function collapse(d) {
+      if(d.children) {
+        d._children = d.children
+        d._children.forEach(collapse)
+        d.children = null
+      }
+    }
+
+    function update(source) {
+    const statusStroke = {'WAITING': 'yellow', 'READY': 'green', 'RUNNING': 'green', 'COMPLETED': 'green', 'FAILED': 'red', 'CANCELED': 'red', 'No Data': 'steelBlue'}
+    const statusFill = {'WAITING': 'yellow', 'READY': 'green', 'RUNNING': 'yellow', 'COMPLETED': 'green', 'FAILED': 'red', 'CANCELED': 'red', 'No Data': '#fff'}
+
+      // Assigns the x and y position for the nodes
+      var treeData = treemap(root);
+
+      // Compute the new tree layout.
+      var nodes = treeData.descendants(),
+          links = treeData.descendants().slice(1);
+
+      // Normalize for fixed-depth.
+        // adjusts vertical distance between nodes
+      nodes.forEach(function(d){ d.y = d.depth * 330});
+
+      // ****************** Nodes section ***************************
+      // Update the nodes...
+      var node = svg.selectAll('g.node')
+          .data(nodes, function(d) {return d.id || (d.id = ++i); });
+
+      // Enter any new modes at the parent's previous position.
+      var nodeEnter = node.enter().append('g')
+          .attr('class', 'node')
+          .attr("transform", function(d) {
+            return "translate(" + source.y0 + "," + source.x0 + ")";
+        })
+        .on('click', click);
+
+      // Add Circle for the nodes
+      nodeEnter.append('circle')
+          .attr('class', 'node')
+          .attr('r', 1e-6)
+          .style("fill", function(d) {
+              return 'red';
+          })
+          .style("stroke", function(d) {
+              return statusStroke[d.status];
+          })
+
+      // Add labels for the nodes
+      nodeEnter.append('text')
+          .attr("dy", ".35em")
+          .attr("x", function(d) {
+              return d.children || d._children ? -13 : 13;
+          })
+          .attr("text-anchor", function(d) {
+              return d.children || d._children ? "end" : "start";
+          })
+          .text(function(d) { return d.data.name; });
+
+      // UPDATE
+      var nodeUpdate = nodeEnter.merge(node);
+
+      // Transition to the proper position for the node
+      nodeUpdate.transition()
+        .duration(duration)
+        .attr("transform", function(d) {
+            return "translate(" + d.y + "," + d.x + ")";
+         });
+      // Update the node attributes and style
+      nodeUpdate.select('circle.node')
+        .attr('r', 10)
+        .style("fill", function(d) {
+            return statusFill[d.data.status];
+        })
+          .style("stroke", function(d) {
+              return statusStroke[d.data.status];
+        })
+        .attr('cursor', 'pointer');
+
+
+      // Remove any exiting nodes
+      var nodeExit = node.exit().transition()
+          .duration(duration)
+          .attr("transform", function(d) {
+              return "translate(" + source.y + "," + source.x + ")";
+          })
+          .remove();
+
+      // On exit reduce the node circles size to 0
+      nodeExit.select('circle')
+        .attr('r', 1e-6);
+
+      // On exit reduce the opacity of text labels
+      nodeExit.select('text')
+        .style('fill-opacity', 1e-6);
+
+      // ****************** links section ***************************
+
+      // Update the links...
+      var link = svg.selectAll('path.link')
+          .data(links, function(d) { return d.id; });
+
+      // Enter any new links at the parent's previous position.
+      var linkEnter = link.enter().insert('path', "g")
+          .attr("class", "link")
+          .attr('d', function(d){
+            var o = {x: source.x0, y: source.y0}
+            return diagonal(o, o)
+          });
+
+      // UPDATE
+      var linkUpdate = linkEnter.merge(link);
+
+      // Transition back to the parent element position
+      linkUpdate.transition()
+          .duration(duration)
+          .attr('d', function(d){ return diagonal(d, d.parent) });
+
+      // Remove any exiting links
+      var linkExit = link.exit().transition()
+          .duration(duration)
+          .attr('d', function(d) {
+            var o = {x: source.x, y: source.y}
+            return diagonal(o, o)
+          })
+          .remove();
+
+      // Store the old positions for transition.
+      nodes.forEach(function(d){
+        d.x0 = d.x;
+        d.y0 = d.y;
+      });
+
+      // Creates a curved (diagonal) path from parent to the child nodes
+      function diagonal(s, d) {
+
+        path = `M ${s.y} ${s.x}
+                C ${(s.y + d.y) / 2} ${s.x},
+                  ${(s.y + d.y) / 2} ${d.x},
+                  ${d.y} ${d.x}`;
+
+        return path
+      }
+
+      // Toggle children on click.
+      function click(d) {
+        if (d.children) {
+            d._children = d.children;
+            d.children = null;
+          } else {
+            d.children = d._children;
+            d._children = null;
+          }
+        update(d);
+      }
+    }
+
+    build();
+
+    </script>
+    {% endblock scaffold %}

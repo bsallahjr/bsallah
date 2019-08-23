@@ -1,0 +1,10 @@
+{% load static %}
+<h1>Zelda</h1>
+<form action="/select_metrics">
+    <h3>Please Enter a username or Experiment ID</h3>
+    <input type="text" name="username" placeholder="Username / Experiment">
+    <p></p>
+    <input type="radio" name="case" value="by_username">Username<br>
+    <input type="radio" name="case" value="by_id">Experiment ID<br>
+    <input type="submit" value="Submit">
+</form>
